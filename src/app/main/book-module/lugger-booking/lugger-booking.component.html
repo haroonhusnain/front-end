@@ -1,0 +1,253 @@
+<div class="full-page-content-inner">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="tasks-list-container margin-top-35">
+
+                    <a class="task-listing">
+
+                        <!-- Job Listing Details -->
+                        <div class="task-listing-details">
+
+                            <!-- Details -->
+                            <div class="task-listing-description">
+                                <h3 class="task-listing-title">Delivery Address</h3>
+                                <p class="task-listing-text">Where should we deliver your moving supplies?</p>
+                                <div class="task-tags">
+                                    <span>{{inputLocations[0]?.formatted_address}}</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="task-listing-bid">
+                            <div class="task-listing-bid-inner">
+                                <img src="assets/images/company-logo-01.png" class="margin-bottom-5">
+                                <span class="button ripple-effect" (click)="checkAvailablitiy('Delievery')">View
+                                    Availablity </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <div class="tasks-list-container margin-top-35">
+
+                    <a class="task-listing">
+
+                        <!-- Job Listing Details -->
+                        <div class="task-listing-details">
+
+                            <!-- Details -->
+                            <div class="task-listing-description">
+                                <h3 class="task-listing-title">Pickup Address</h3>
+                                <p class="task-listing-text">Schedule Moving date when your ready</p>
+                                <div class="task-tags">
+                                    <span>{{inputLocations[0]?.formatted_address}}</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="task-listing-bid">
+                            <div class="task-listing-bid-inner">
+                                <img src="assets/images/company-logo-01.png" class="margin-bottom-5">
+                                <span class="button ripple-effect" (click)="checkAvailablitiy('Pickup')">View
+                                    Availablity </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <form #f="ngForm" (submit)="f.form.valid && saveLuggerBooking(f)">
+            <div class="row" id="dashboard-box">
+                <div class="row">
+                    <div class="col-xl-8">
+
+                        <div class="row margin-bottom-50">
+
+                            <div class="col-md-12">
+                                <div class="attachments-container">
+
+                                    <a class="attachment-box ripple-effect" *ngFor="let truck of truckDetails" [ngClass]="{'active': query.truckId == truck.id}">
+                                        <span>{{truck.name | uppercase }} <small>{{truck.luggers}} Lugger</small></span>
+                                        <span>Single item and small loads</span>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="margin-top-20"></div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <h3 class="margin-bottom-20">Delivery Days?</h3>
+
+                                <div class="row">
+                                    <div class="col-md-3" *ngFor="let item of deliveryDays; let i = index;">
+                                        <input type="radio" name="deliveryDays" ngModel [value]="item.name" [id]="'deliveryDays'+i" style="display:none" [disabled]="item.isDisabled">
+                                        <label class="time-checkbox attachment-box" [for]="'deliveryDays'+i" [ngStyle]="{'cursor': item.isDisabled === false ? 'no-drop' : 'pointer'}">
+                                            <span
+                                                [ngStyle]="{'color': item.isDisabled === false ? 'red' : '#444'}">{{item.name}}</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <h3 class="margin-bottom-20">Pickup Days?</h3>
+
+                                <div class="row">
+                                    <div class="col-md-3" *ngFor="let item of pickupDays; let i = index;">
+                                        <input type="radio" name="pickupDays" ngModel [value]="item.name" [id]="'pickupDays'+i" style="display:none" [disabled]="item.isDisabled === false">
+                                        <label class="time-checkbox attachment-box" [for]="'pickupDays'+i" [ngStyle]="{'cursor': item.isDisabled === false ? 'no-drop' : 'pointer'}">
+                                            <span
+                                                [ngStyle]="{'color': item.isDisabled === false ? 'red' : '#444'}">{{item.name}}</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                <div class="submit-field" [ngClass]="{'has-error': f.submitted && first_name.invalid}">
+                                    <h3>First Name</h3>
+                                    <input type="text" class="with-border" name="first_name" ngModel #first_name="ngModel" required>
+                                    <span class="help-block" *ngIf="f.submitted && first_name.invalid">
+                                        First name is required
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="submit-field" [ngClass]="{'has-error': f.submitted && last_name.invalid}">
+                                    <h3>Last Name</h3>
+                                    <input type="text" class="with-border" name="last_name" ngModel #last_name="ngModel" required>
+                                    <span class="help-block" *ngIf="f.submitted && last_name.invalid">
+                                        Last name is required
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                <div class="submit-field" [ngClass]="{'has-error': f.submitted && email.invalid}">
+                                    <h3>Email</h3>
+                                    <input type="email" class="with-border" name="email" ngModel #email="ngModel" required>
+                                    <span class="help-block" *ngIf="f.submitted && email.invalid">
+                                        Email is required
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="submit-field" [ngClass]="{'has-error': f.submitted && phone.invalid}">
+                                    <h3>Phone number</h3>
+                                    <input type="number" class="with-border" name="phone_number" ngModel #phone="ngModel" required>
+                                    <span class="help-block" *ngIf="f.submitted && phone.invalid">
+                                        Phone number is required
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="submit-field">
+                                    <h3 class="margin-top-20">What day do you need us?</h3>
+                                    <textarea class="with-border" name="description" ngModel></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <h3 class="margin-bottom-20">What day do you need us?</h3>
+
+                                <div class="row">
+                                    <div class="col-md-3" *ngFor="let item of time; let i = index;">
+                                        <input type="radio" name="time" [value]="item" [id]="item+i" style="display:none" [checked]="item=='monday'" ngModel>
+                                        <label class="time-checkbox attachment-box active" [for]="item+i">
+                                            <span>{{item}}</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xl-4">
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="dashboard-box margin-top-0">
+                                    <div class="content with-padding padding-bottom-10">
+                                        <div id="map" style="height: 300px;"></div>
+
+                                        <div class="booking-detail margin-top-30">
+                                            <h4><strong>Pickup Addess:</strong> </h4>
+                                            <p>{{inputLocations[0]?.formatted_address}}</p>
+                                        </div>
+
+                                        <div class="booking-detail margin-top-30">
+                                            <h4><strong>Dropoff:</strong> </h4>
+                                            <p>{{inputLocations[1]?.formatted_address}}</p>
+                                        </div>
+
+                                        <div class="booking-detail margin-top-30">
+                                            <h4><strong>Price:</strong> </h4>
+                                            <p>${{selectedTruck?.price}} + $5 per labor min</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Button -->
+                <div class="col-xl-12">
+                    <button class="button ripple-effect big margin-top-30" type="submit">Save Changes</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</div>

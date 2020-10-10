@@ -1,0 +1,62 @@
+<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide dialog-with-tabs">
+
+    <!--Tabs -->
+    <div class="sign-in-form">
+
+        <ul class="popup-tabs-nav">
+            <li><a href="#login">Login</a></li>
+            <!-- <li><a href="#register">Register</a></li> -->
+            <li><a href="#forget-password">Forget Password</a></li>
+        </ul>
+
+        <div class="popup-tabs-container">
+
+            <!-- Login -->
+            <div class="popup-tab-content" id="login">
+
+                <!-- Welcome Text -->
+                <div class="welcome-text">
+                    <h3>We are glad to see you again!</h3>
+                    <span>Do not have an account <a routerLink="/become-a-lugger" type="button" (click)="closeModal()"
+                            class="register-tab">Sign
+                            Up!</a></span>
+                </div>
+
+                <!-- Form -->
+                <app-login></app-login>
+                <!-- Button -->
+                <button class="button full-width button-sliding-icon ripple-effect" type="submit" form="login-form">Log
+                    In <i class="icon-material-outline-arrow-right-alt"></i></button>
+
+            </div>
+
+            <!-- Register -->
+            <!-- <div class="popup-tab-content" id="register"> -->
+
+            <!-- Welcome Text -->
+            <!-- <div class="welcome-text">
+                    <h3>Lets create your account!</h3>
+                </div> -->
+
+            <!-- Form -->
+            <!-- <app-sign-up></app-sign-up> -->
+
+            <!-- </div> -->
+
+            <!-- Forget Password -->
+            <div class="popup-tab-content" id="forget-password">
+
+                <!-- Welcome Text -->
+                <div class="welcome-text">
+                    <h3>Write your email to change your password!</h3>
+                </div>
+
+                <!-- Form -->
+                <app-forget-password></app-forget-password>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Sign In Popup / End -->

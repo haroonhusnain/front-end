@@ -1,0 +1,54 @@
+<div class="container margin-top-95">
+
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h1>
+                <b>
+                    Enter your pickup and destination
+                </b>
+            </h1>
+
+            <form #f="ngForm" (submit)="f.form.valid && saveLocation(f)">
+                <div class="intro-banner-search-form margin-top-95">
+
+                    <!-- Search Field -->
+                    <div class="intro-search-field with-autocomplete with-label" [ngClass]="{'has-error': f.submitted && pickup.invalid}">
+
+                        <label for="autocomplete-input" class="field-title ripple-effect">Pick up Address</label>
+                        <div class="input-with-icon">
+                            <input id="autocomplete-input" type="text" placeholder="Enter Pickup" name="pickup" ngModel #pickup="ngModel" required>
+                            <i class="icon-material-outline-location-on"></i>
+                        </div>
+                        <span class="help-block" *ngIf="f.submitted && pickup.invalid">
+                            Pickup location is required
+                        </span>
+
+                    </div>
+
+                    <!-- Search Field -->
+                    <div class="intro-search-field with-label" [ngClass]="{'has-error': f.submitted && destination.invalid}">
+
+                        <label for="intro-keywords" class="field-title ripple-effect">Destination</label>
+                        <div class="input-with-icon">
+                            <input id="intro-keywords" type="text" placeholder="Enter destination" name="destination" ngModel #destination="ngModel" required>
+                            <i class="icon-material-outline-location-on"></i>
+                        </div>
+                        <span class="help-block" *ngIf="f.submitted && destination.invalid">
+                            Destination is required
+                        </span>
+
+                    </div>
+
+                    <!-- Button -->
+                    <div class="intro-search-button">
+                        <button class="button ripple-effect" type="submit">Get Estimate</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+<div class="margin-top-40"></div>
+<div id="map" style="height: 400px;"></div>

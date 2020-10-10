@@ -1,0 +1,57 @@
+<div class="full-page-content-inner">
+
+    <div class="listings-container grid-layout margin-top-35 listings-container-center">
+
+        <a class="job-listing" *ngFor="let truck of trucksDetail">
+
+            <div class="job-listing-details pointer-cursor" [ngClass]="{'active': query.truckId == truck.id}" (click)="routeTo()">
+
+                <div class="job-listing-description" align="center">
+                    <img src="assets/images/lugger-1.png">
+                    <h2 class="job-listing-company margin-top-20">{{truck.name | uppercase }} <small class="red-color-font">{{truck.luggers}}</small>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="job-listing-footer" align="center">
+                <button href="#small-dialog-2" (click)="getPackageDetail(truck)" class="popup-with-zoom-anim button ripple-effect" type="button"><i
+                        class="icon-material-outline-thumb-up"></i> View</button>
+            </div>
+        </a>
+
+    </div>
+
+</div>
+<div id="small-dialog-2" class="zoom-anim-dialog mfp-hide dialog-with-tabs">
+
+    <!--Tabs -->
+    <div class="sign-in-form">
+
+        <ul class="popup-tabs-nav" style="pointer-events: none;">
+        </ul>
+
+        <div class="popup-tabs-container">
+
+            <!-- Tab -->
+            <div class="popup-tab-content" id="tab2">
+
+
+
+                <!-- Welcome Text -->
+                <div class="welcome-text">
+                    <h3>Package Include</h3>
+                </div>
+
+                <div class="numbered color filled">
+                    <ol>
+                        <li *ngFor="let packageItem of packageItems"><b>{{packageItem.name}}:</b> {{packageItem.value}} </li>
+                    </ol>
+                </div>
+
+                <p><b>Total:</b> $ {{packageTotal | number: '1.1-2'}}</p>
+            </div>
+
+        </div>
+    </div>
+    <button title="Close (Esc)" type="button" class="mfp-close"></button>
+</div>

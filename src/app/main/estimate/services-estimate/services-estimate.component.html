@@ -1,0 +1,27 @@
+<div class="tasks-list-container tasks-grid-layout margin-top-35">
+
+    <!-- Task -->
+    <a class="task-listing" *ngFor="let category of categories">
+
+        <!-- Job Listing Details -->
+        <div class="task-listing-details">
+
+            <!-- Details -->
+            <div class="task-listing-description">
+                <h3 class="task-listing-title">{{category.name}}</h3>
+                <ul class="task-icons">
+                    <li> {{category.description}}</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="task-listing-bid">
+            <div class="task-listing-bid-inner">
+                <span class="button button-sliding-icon ripple-effect" (click)="routeTo(category)">GO <i
+                        class="icon-material-outline-arrow-right-alt"></i></span>
+            </div>
+        </div>
+    </a>
+
+</div>

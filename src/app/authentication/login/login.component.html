@@ -1,0 +1,26 @@
+<span class="has-error">{{error}}</span>
+<form #loginForm="ngForm" (submit)="login(loginForm)" id="login-form">
+    <div class="form-group" [ngClass]="{'has-error': loginForm.submitted && email.invalid}">
+        <span class="help-block" *ngIf="loginForm.submitted && email.invalid">
+            {{email.errors.required? 'Email is required': ''}}
+            {{email.errors.server? email.errors.server: ''}}
+        </span>
+        <div class="input-with-icon-left">
+            <i class="icon-material-baseline-mail-outline"></i>
+            <input type="email" class="input-text with-border" name="email" #email="ngModel" ngModel
+                placeholder="Email Address" required />
+        </div>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error': loginForm.submitted && password.invalid}">
+        <span class="help-block" *ngIf="loginForm.submitted && password.invalid">
+            {{password.errors.required? 'Password is required': ''}}
+            {{password.errors.server? password.errors.server: ''}}
+        </span>
+        <div class="input-with-icon-left">
+            <i class="icon-material-outline-lock"></i>
+            <input type="password" class="input-text with-border" name="password" #password="ngModel" ngModel
+                placeholder="Password" required />
+        </div>
+    </div>
+    <!-- <a href="#" class="forgot-password">Forgot Password?</a> -->
+</form>

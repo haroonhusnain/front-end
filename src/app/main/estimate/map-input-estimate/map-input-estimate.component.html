@@ -1,0 +1,91 @@
+<div class="dashboard-box margin-top-0">
+
+    <div class="content with-padding">
+        <div class="row">
+            <div class="col-md-8">
+
+                <div class="submit-field submit-field-margin-bottom-0">
+                    <input type="text" class="with-border" value="{{activateRoute | uppercase}}" readonly>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <button class="button ripple-effect full-btn-width" type="button" [routerLink]="'../'">Change</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="dashboard-box margin-top-20">
+
+    <div class="content with-padding padding-bottom-10">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="submit-field">
+                    <h5>Pickup address</h5>
+                    <input type="text" id="origin-input" class="with-border" placeholder="Enter pickup address" [ngModel]="inputLocations[0]?.formatted_address">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="submit-field">
+                    <h5>Destination</h5>
+                    <input type="text" id="destination-input" class="with-border" placeholder="Enter Destination" [ngModel]="inputLocations[1]?.formatted_address">
+                </div>
+            </div>
+        </div>
+
+        <div class="lugger-categories" *ngIf="(inputLocations[0]?.formatted_address && inputLocations[1]?.formatted_address) || (origin.lat && destination.lat)">
+            <div class="row" *ngFor="let truckDetail of truckDetails">
+                <div class="col-md-12">
+
+                    <div class="sidebar-container">
+
+                        <div class="sidebar-widget">
+                            <div class="bidding-widget">
+
+                                <div class="bidding-inner">
+
+                                    <div class="row">
+
+                                        <div class="col-md-3">
+                                            <img width="135px;" class="img-responsive" [src]="truckDetail.image">
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <!-- Headline -->
+                                            <span class="bidding-detail">
+                                                <strong>{{truckDetail.name | uppercase }} </strong>
+                                            </span>
+                                            <p class="margin-bottom-0"> $ {{truckDetail.per_mile_price}} per mile price
+                                            </p>
+                                            <span class="bidding-detail">
+                                                <strong>$ {{truckDetail.charges | number: '2.3-3'}} </strong>
+                                            </span>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <button class="button ripple-effect full-btn-width" (click)="routeTo(truckDetail)" type="button">Learn More</button>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+</div>

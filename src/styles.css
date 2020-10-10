@@ -1,0 +1,111 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+.arrow-icon {
+    font-size: 65px;
+}
+
+.account-type input.account-type-radio:checked~label {
+    color: #fff !important;
+    background-color: #fa7500 !important;
+}
+
+.has-error input,
+.has-error textarea,
+.has-error select {
+    border-color: red !important;
+}
+
+.has-error .input-with-icon-left i {
+    border-left-color: red;
+    border-top-color: red;
+    border-bottom-color: red;
+}
+
+.has-error {
+    color: red !important;
+}
+
+.select-with-border {
+    padding: 0px 18px;
+}
+
+.pointer-cursor {
+    cursor: pointer;
+}
+
+.companies-list p {
+    padding: 20px;
+}
+
+.full-btn-width {
+    width: 100% !important;
+}
+
+.submit-field-margin-bottom-0 {
+    margin-bottom: -15px;
+}
+
+.red-color-font {
+    color: red;
+}
+
+.listings-container-center {
+    justify-content: center;
+}
+
+.companies-list .active,
+.companies-list .active h4,
+.companies-list .active span {
+    background: #ea7c11;
+    color: white;
+}
+
+.companies-list a:hover {
+    background: #ea7c11;
+    color: white;
+}
+
+.companies-list a:hover h4,
+.companies-list a:hover span {
+    color: white;
+}
+
+.job-listing .active,
+.job-listing .active h2 small {
+    border-radius: 5px;
+    background: #ea7c11;
+    color: white;
+}
+
+.time-checkbox.attachment-box {
+    padding-bottom: 15px;
+    cursor: pointer;
+}
+
+input:checked+.attachment-box {
+    background-color: #fa7500 !important;
+}
+
+input:checked+.attachment-box span {
+    color: white !important;
+}
+
+.tabs-header li {
+    text-transform: capitalize;
+}
+
+.right-align {
+    float: right;
+}
+
+.attachments-container .active,
+.attachments-container .active span {
+    background-color: #fa7500!important;
+    color: white;
+}
+
+.attachments-container a:hover,
+.attachments-container a:hover span {
+    color: white;
+}

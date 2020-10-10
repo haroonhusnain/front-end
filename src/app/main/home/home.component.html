@@ -1,0 +1,364 @@
+<div class="intro-banner" data-background-image="assets/images/home-background.jpg">
+    <div class="container">
+
+        <!-- Intro Headline -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="banner-headline">
+                    <h3>
+                        <strong>Move Anything</strong>
+                        <br>
+                        <span>with the push of <strong class="color">button</strong>.</span>
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <form #f="ngForm" (submit)="f.form.valid && getEstimate()">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="intro-banner-search-form margin-top-95">
+
+                        <!-- Search Field -->
+                        <div class="intro-search-field with-autocomplete with-label" [ngClass]="{'has-error': f.submitted && origin.invalid}">
+
+                            <label for="autocomplete-input" class="field-title ripple-effect">Pick up Address</label>
+                            <div class="input-with-icon">
+
+                                <input id="autocomplete-input" type="text" placeholder="Enter Pickup" name="origin" id="origin-input" ngModel #origin="ngModel" required>
+                                <i class="icon-material-outline-location-on"></i>
+
+                            </div>
+                            <span class="help-block" *ngIf="f.submitted && origin.invalid">
+                                Pickup is required
+                            </span>
+                        </div>
+
+                        <!-- Search Field -->
+                        <div class="intro-search-field with-label" [ngClass]="{'has-error': f.submitted && destination.invalid}">
+
+                            <label for="intro-keywords" class="field-title ripple-effect">Destination</label>
+                            <div class="input-with-icon">
+
+                                <input id="intro-keywords" type="text" placeholder="Enter destination" name="destination" id="destination-input" ngModel #destination="ngModel" required>
+                                <i class="icon-material-outline-location-on"></i>
+
+                            </div>
+                            <span class="help-block" *ngIf="f.submitted && destination.invalid">
+                                Destination is required
+                            </span>
+
+                        </div>
+
+                        <!-- Button -->
+                        <div class="intro-search-button">
+                            <button class="button ripple-effect" type="submit">Get Estimate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <!-- Stats -->
+        <!-- <div class="row">
+			<div class="col-md-12">
+				<ul class="intro-stats margin-top-45 hide-under-992px">
+					<li>
+						<strong class="counter">61</strong>
+						<span>Jobs Posted</span>
+					</li>
+					<li>
+						<strong class="counter">724</strong>
+						<span>Tasks Posted</span>
+					</li>
+					<li>
+						<strong class="counter">252</strong>
+						<span>Freelancers</span>
+					</li>
+				</ul>
+			</div>
+		</div> -->
+
+    </div>
+    <div class="background-image-container" style="background-image: url(&quot;assets/images/home-background.jpg&quot;);">
+    </div>
+</div>
+
+<div class="section margin-top-65 margin-bottom-65">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+
+                <div class="section-headline centered margin-bottom-15">
+                    <h3>Popular Services</h3>
+                </div>
+
+                <!-- Category Boxes Container -->
+                <div class="categories-container">
+
+                    <!-- Category Box -->
+                    <a [routerLink]="'/services/store-delivery'" class="category-box">
+                        <div class="category-box-icon">
+                            <i class="icon-line-awesome-file-code-o"></i>
+                        </div>
+                        <div class="category-box-content">
+                            <h3>Store delivery</h3>
+                            <p>Delivered in as little as 30 minutes.</p>
+                        </div>
+                    </a>
+
+                    <!-- Category Box -->
+                    <a [routerLink]="'/services/small-moves'" class="category-box">
+                        <div class="category-box-icon">
+                            <i class="icon-line-awesome-cloud-upload"></i>
+                        </div>
+                        <div class="category-box-content">
+                            <h3>Small moves</h3>
+                            <p>Save time, take back your weekend.</p>
+                        </div>
+                    </a>
+
+                    <!-- Category Box -->
+                    <a [routerLink]="'/services/craigslist-delivery'" class="category-box">
+                        <div class="category-box-icon">
+                            <i class="icon-line-awesome-suitcase"></i>
+                        </div>
+                        <div class="category-box-content">
+                            <h3>Craigslist delivery</h3>
+                            <p>Buy & sell without leaving the house.</p>
+                        </div>
+                    </a>
+
+                    <!-- Category Box -->
+                    <a [routerLink]="'/services/storage-moves'" class="category-box">
+                        <div class="category-box-icon">
+                            <i class="icon-line-awesome-pencil"></i>
+                        </div>
+                        <div class="category-box-content">
+                            <h3>Storage moves</h3>
+                            <p>To and from storage without a sweat.</p>
+                        </div>
+                    </a>
+
+                    <!-- Category Box -->
+                    <a [routerLink]="'/services/donations'" class="category-box">
+                        <div class="category-box-icon">
+                            <i class="icon-line-awesome-pie-chart"></i>
+                        </div>
+                        <div class="category-box-content">
+                            <h3>Donations</h3>
+                            <p>Get rid of your unwanted.</p>
+                        </div>
+                    </a>
+
+                    <!-- Category Box -->
+                    <a [routerLink]="'/services/junk-removal'" class="category-box">
+                        <div class="category-box-icon">
+                            <i class="icon-line-awesome-image"></i>
+                        </div>
+                        <div class="category-box-content">
+                            <h3>Junk removal</h3>
+                            <p>Junk it all.</p>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section gray padding-top-65 padding-bottom-70 full-width-carousel-fix">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xl-12">
+                <!-- Section Headline -->
+                <div class="section-headline margin-top-0 margin-bottom-25">
+                    <h3>Reviews</h3>
+                </div>
+            </div>
+
+            <div class="col-xl-12">
+                <div class="default-slick-carousel freelancers-container freelancers-grid-layout slick-initialized slick-slider">
+                    <button class="slick-prev slick-arrow slick-disabled" aria-label="Previous" type="button" aria-disabled="true" style="">Previous</button>
+
+                    <!--Freelancer -->
+                    <div class="slick-list draggable">
+                        <div class="slick-track" style="opacity: 1; width: 2424px; transform: translate3d(0px, 0px, 0px);">
+                            <div class="freelancer slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 374px;" tabindex="0">
+
+                                <!-- Overview -->
+                                <div class="freelancer-overview">
+                                    <div class="freelancer-overview-inner">
+
+                                        <!-- Avatar -->
+                                        <div class="freelancer-avatar">
+                                            <!-- <div class="verified-badge"></div> -->
+                                            <a href="single-freelancer-profile.html" tabindex="0"><img src="assets/images/user-avatar-big-01.jpg" alt=""></a>
+                                        </div>
+
+                                        <!-- Name -->
+                                        <div class="freelancer-name">
+                                            <h4><a href="single-freelancer-profile.html" tabindex="0">Tom Smith <img
+                                                        class="flag" src="assets/images/flags/gb.svg" alt=""
+                                                        data-tippy-placement="top" data-tippy=""
+                                                        data-original-title="United Kingdom"></a></h4>
+                                        </div>
+
+                                        <!-- Rating -->
+                                        <div class="freelancer-rating">
+                                            <div class="star-rating" data-rating="5.0"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Details -->
+                                <div class="freelancer-details">
+                                    <div class="freelancer-details-list">
+                                        <p>
+                                            "Lugg is such a fast, easy, and convenient service! I've used them twice now and both moves have been amazing. I highly recommend this service to anyone who has no other way to transport big items!"
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="freelancer slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 374px;" tabindex="0">
+
+                                <!-- Overview -->
+                                <div class="freelancer-overview">
+                                    <div class="freelancer-overview-inner">
+
+                                        <!-- Avatar -->
+                                        <div class="freelancer-avatar">
+                                            <!-- <div class="verified-badge"></div> -->
+                                            <a href="single-freelancer-profile.html" tabindex="0"><img src="assets/images/user-avatar-big-01.jpg" alt=""></a>
+                                        </div>
+
+                                        <!-- Name -->
+                                        <div class="freelancer-name">
+                                            <h4><a href="single-freelancer-profile.html" tabindex="0">Tom Smith <img
+                                                        class="flag" src="assets/images/flags/gb.svg" alt=""
+                                                        data-tippy-placement="top" data-tippy=""
+                                                        data-original-title="United Kingdom"></a></h4>
+                                        </div>
+
+                                        <!-- Rating -->
+                                        <div class="freelancer-rating">
+                                            <div class="star-rating" data-rating="5.0"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Details -->
+                                <div class="freelancer-details">
+                                    <div class="freelancer-details-list">
+                                        <p>
+                                            "Lugg is such a fast, easy, and convenient service! I've used them twice now and both moves have been amazing. I highly recommend this service to anyone who has no other way to transport big items!"
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="freelancer slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 374px;" tabindex="0">
+
+                                <!-- Overview -->
+                                <div class="freelancer-overview">
+                                    <div class="freelancer-overview-inner">
+
+                                        <!-- Avatar -->
+                                        <div class="freelancer-avatar">
+                                            <!-- <div class="verified-badge"></div> -->
+                                            <a href="single-freelancer-profile.html" tabindex="0"><img src="assets/images/user-avatar-big-01.jpg" alt=""></a>
+                                        </div>
+
+                                        <!-- Name -->
+                                        <div class="freelancer-name">
+                                            <h4><a href="single-freelancer-profile.html" tabindex="0">Tom Smith <img
+                                                        class="flag" src="assets/images/flags/gb.svg" alt=""
+                                                        data-tippy-placement="top" data-tippy=""
+                                                        data-original-title="United Kingdom"></a></h4>
+                                        </div>
+
+                                        <!-- Rating -->
+                                        <div class="freelancer-rating">
+                                            <div class="star-rating" data-rating="5.0"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Details -->
+                                <div class="freelancer-details">
+                                    <div class="freelancer-details-list">
+                                        <p>
+                                            "Lugg is such a fast, easy, and convenient service! I've used them twice now and both moves have been amazing. I highly recommend this service to anyone who has no other way to transport big items!"
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="slick-next slick-arrow" aria-label="Next" type="button" style="" aria-disabled="false">Next</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="section margin-top-65 margin-bottom-65">
+    <div class="container">
+        <div class="row">
+
+            <!-- Section Headline -->
+            <div class="col-xl-12">
+                <div class="section-headline centered margin-top-0 margin-bottom-45">
+                    <h3>Featured Cities</h3>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6">
+                <!-- Photo Box -->
+                <a href="jobs-list-layout-1.html" class="photo-box" data-background-image="assets/images/featured-city-01.jpg" style="background-image: url(&quot;assets/images/featured-city-01.jpg&quot;);">
+                    <div class="photo-box-content">
+                        <h3>San Francisco</h3>
+                        <span>376 Jobs</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xl-3 col-md-6">
+                <!-- Photo Box -->
+                <a href="jobs-list-layout-full-page-map.html" class="photo-box" data-background-image="assets/images/featured-city-02.jpg" style="background-image: url(&quot;assets/images/featured-city-02.jpg&quot;);">
+                    <div class="photo-box-content">
+                        <h3>New York</h3>
+                        <span>645 Jobs</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xl-3 col-md-6">
+                <!-- Photo Box -->
+                <a href="jobs-grid-layout-full-page.html" class="photo-box" data-background-image="assets/images/featured-city-03.jpg" style="background-image: url(&quot;assets/images/featured-city-03.jpg&quot;);">
+                    <div class="photo-box-content">
+                        <h3>Los Angeles</h3>
+                        <span>832 Jobs</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xl-3 col-md-6">
+                <!-- Photo Box -->
+                <a href="jobs-list-layout-2.html" class="photo-box" data-background-image="assets/images/featured-city-04.jpg" style="background-image: url(&quot;assets/images/featured-city-04.jpg&quot;);">
+                    <div class="photo-box-content">
+                        <h3>Miami</h3>
+                        <span>513 Jobs</span>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>

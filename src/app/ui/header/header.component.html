@@ -1,0 +1,110 @@
+<div id="header">
+    <div class="container">
+
+        <!-- Left Side Content -->
+        <div class="left-side">
+
+            <!-- Logo -->
+            <div id="logo">
+                <a routerLink="/"><img src="assets/images/logo.png" alt=""></a>
+            </div>
+
+            <!-- Main Navigation -->
+            <nav id="navigation">
+                <ul id="responsive">
+
+                    <li class="margin-top-3"><a href="#">Cities</a></li>
+                    <li><a href="#">Services</a>
+                        <ul class="dropdown-nav">
+                            <li><a routerLink="/services/store-delivery">Store delivery</a></li>
+                            <li><a routerLink="/services/small-moves">Small moves</a></li>
+                            <li><a routerLink="/services/craigslist-delivery">Craigslist delivery</a></li>
+                            <li><a routerLink="/services/storage-moves">Storage moves</a></li>
+                            <li><a routerLink="/services/donations">Donations</a></li>
+                            <li><a routerLink="/services/junk-removal">Junk removal</a></li>
+                        </ul>
+                    </li>
+                    <li class="margin-top-3"><a href="#">Partner</a></li>
+                    <!-- <li class="margin-top-3"><a routerLink="/estimate">Get an estimate</a></li> -->
+
+                </ul>
+            </nav>
+            <div class="clearfix"></div>
+            <!-- Main Navigation / End -->
+
+        </div>
+        <!-- Left Side Content / End -->
+
+
+        <!-- Right Side Content / End -->
+        <div class="right-side">
+
+            <!-- <div class="header-widget">
+                <div class="uploadButton margin-top-20">
+                    <label class="uploadButton-button ripple-effect" routerLink="/book" for="book now">BOOK NOW</label>
+                </div>
+            </div> -->
+
+            <div class="header-widget" *ngIf="!authenticationService.isLogin">
+                <a href="#sign-in-dialog" class="popup-with-zoom-anim log-in-button"><i class="icon-feather-log-in"></i>
+                    <span>Log In / Register</span></a>
+            </div>
+
+            <div class="header-widget" *ngIf="authenticationService.isLogin">
+
+                <!-- Messages -->
+                <div class="header-notifications user-menu">
+                    <div class="header-notifications-trigger">
+                        <a href="#">
+                            <div class="user-avatar status-online"><img [src]="authenticationService.profile?.profile_picture? authenticationService.profile.profile_picture : 'assets/images/user-avatar-small-01.jpg'" alt="" height="50" width="50"></div>
+                        </a>
+                    </div>
+
+                    <!-- Dropdown -->
+                    <div class="header-notifications-dropdown">
+
+                        <!-- User Status -->
+                        <div class="user-status">
+
+                            <!-- User Name / Avatar -->
+                            <div class="user-details">
+                                <div class="user-avatar status-online"><img [src]="authenticationService.profile?.profile_picture? authenticationService.profile.profile_picture : 'assets/images/user-avatar-small-01.jpg'" alt="" height="50" width="50"></div>
+                                <div class="user-name">
+                                    Lugger
+                                    <!-- {{authenticationService.profile?.first_name}}
+                                    {{authenticationService.profile?.last_name}} <span>{{authenticationService.profile?.type
+                            == 'buddy'? 'Buddy' : 'Client'}}</span> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="user-menu-small-nav">
+                            <li><a routerLink="/dashboard"><i class="icon-material-outline-dashboard"></i>
+                                    Dashboard</a></li>
+                            <!-- <li><a [routerLink]="'/dashboard/'+authenticationService.profile?.type+'/settings'"><i
+                                        class="icon-material-outline-settings"></i>
+                                    {{'Settings' | translate}}</a></li> -->
+                            <li><a class="pointer-cursor" (click)="logout()"><i
+                                        class="icon-material-outline-power-settings-new"></i>
+                                    Logout</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Mobile Navigation Button -->
+            <span class="mmenu-trigger">
+                <button class="hamburger hamburger--collapse" type="button">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+            </span>
+            </button>
+            </span>
+
+        </div>
+        <!-- Right Side Content / End -->
+
+    </div>
+</div>

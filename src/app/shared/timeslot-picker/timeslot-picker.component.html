@@ -1,0 +1,29 @@
+<form [formGroup]="checkboxForm" *ngIf="checkboxForm">
+    <div class="tabs">
+        <div class="tabs-header">
+            <ul>
+                <li *ngFor="let name of formControlNames; let i=index" [ngClass]="{active: name=='mon'}"><a [href]="'#tab-'+i" [attr.data-tab-id]="i">{{name}}</a></li>
+            </ul>
+            <div class="tab-hover"></div>
+            <nav class="tabs-nav">
+                <span class="tab-prev"><i class="icon-material-outline-keyboard-arrow-left"></i></span>
+                <span class="tab-next"><i class="icon-material-outline-keyboard-arrow-right"></i></span>
+            </nav>
+        </div>
+        <!-- Tab Content -->
+        <div class="tabs-content" style="min-height: 600px">
+            <div class="tab" [ngClass]="{active: name=='mon'}" *ngFor="let name of formControlNames; let i=index" [attr.data-tab-id]="i">
+                <div class="row" [formArrayName]="name">
+                    <div class="col-3" *ngFor="let control of getDayArray(name).controls; let i = index">
+                        <input [formControlName]="i" type="checkbox" name="checkbox" [id]="name+i" style="display:none">
+                        <label class="time-checkbox attachment-box" [for]="name+i">
+                            <span>{{i+6}}:00</span>
+                            <span>to</span>
+                            <span>{{i+7}}:00</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
